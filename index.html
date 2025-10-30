@@ -49,8 +49,28 @@
         }
         
         .info-group {
-            flex: 1;
-            min-width: 150px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .info-group-name {
+            flex: 4; /* Maior espaço para o nome */
+            min-width: 300px;
+        }
+        
+        .info-group-number {
+            flex: 1; /* Menor espaço para o número */
+            min-width: 60px;
+        }
+        
+        .info-group-class {
+            flex: 2; /* Espaço médio para a série */
+            min-width: 120px;
+        }
+        
+        .info-group-date {
+            flex: 2; /* Espaço médio para a data */
+            min-width: 120px;
         }
         
         .info-group label {
@@ -197,7 +217,7 @@
         <header>
             <div class="school-name">E.E. PROFª WANDA MASCAGNI DE SÁ</div>
             <div class="student-info">
-                <div class="info-group">
+                <div class="info-group info-group-name">
                     <label for="student-name">NOME:</label>
                     <select id="student-name">
                         <option value="">Selecione seu nome</option>
@@ -270,15 +290,15 @@
                         <option value="VINNICIUS RYAN CARDOSO PEREIRA DA SILVA" data-number="42" data-class="7º Ano B">VINNICIUS RYAN CARDOSO PEREIRA DA SILVA</option>
                     </select>
                 </div>
-                <div class="info-group">
+                <div class="info-group info-group-number">
                     <label for="student-number">Nº:</label>
                     <input type="text" id="student-number" readonly>
                 </div>
-                <div class="info-group">
+                <div class="info-group info-group-class">
                     <label for="student-class">SÉRIE:</label>
                     <input type="text" id="student-class" readonly>
                 </div>
-                <div class="info-group">
+                <div class="info-group info-group-date">
                     <label for="activity-date">DATA:</label>
                     <input type="text" id="activity-date" value="">
                 </div>
