@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade de Ciências - 4º Bimestre</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f0f0f0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .school-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .student-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .info-group {
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .info-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .info-group input, .info-group select {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .activity-title {
+            background-color: #3b82f6;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        .questions-container {
+            padding: 20px;
+        }
+        
+        .question {
+            background-color: #dbeafe;
+            padding: 20px;
+            margin-bottom: 2cm;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .question:last-child {
+            margin-bottom: 0;
+        }
+        
+        .question-number {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: #1e3a8a;
+        }
+        
+        .question-text {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .question-image {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+            border-radius: 5px;
+            display: block;
+        }
+        
+        .options {
+            margin-top: 15px;
+        }
+        
+        .option {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #eff6ff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .option:hover {
+            background-color: #dbeafe;
+        }
+        
+        .option.selected {
+            background-color: #bfdbfe;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .option input {
+            margin-right: 10px;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        #submit-btn {
+            background-color: #10b981;
+            color: white;
+        }
+        
+        #submit-btn:hover {
+            background-color: #059669;
+        }
+        
+        #clear-btn {
+            background-color: #ef4444;
+            color: white;
+        }
+        
+        #clear-btn:hover {
+            background-color: #dc2626;
+        }
+        
+        .result {
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+        
+        .success {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+        
+        .error {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="school-name">E.E. PROFª WANDA MASCAGNI DE SÁ</div>
+            <div class="student-info">
+                <div class="info-group">
+                    <label for="student-name">NOME:</label>
+                    <select id="student-name">
+                        <option value="">Selecione seu nome</option>
+                        <!-- Alunos do 7º Ano A -->
+                        <option value="ALICE CARDOSO DE ALCANTARA" data-number="1" data-class="7º Ano A">ALICE CARDOSO DE ALCANTARA</option>
+                        <option value="ANA CAROLINA GONCALVES NASCIMENTO DE LIMA" data-number="2" data-class="7º Ano A">ANA CAROLINA GONCALVES NASCIMENTO DE LIMA</option>
+                        <option value="ANA LUIZA VALENCA PAIVA" data-number="3" data-class="7º Ano A">ANA LUIZA VALENCA PAIVA</option>
+                        <option value="CARLOS EDUARDO MENEZES MACHADO" data-number="5" data-class="7º Ano A">CARLOS EDUARDO MENEZES MACHADO</option>
+                        <option value="EVANDRO CUTOLO TEIXEIRA" data-number="7" data-class="7º Ano A">EVANDRO CUTOLO TEIXEIRA</option>
+                        <option value="GABRIELA SANTOS COSTA" data-number="8" data-class="7º Ano A">GABRIELA SANTOS COSTA</option>
+                        <option value="GLEYSSON PEREIRA DOS SANTOS" data-number="9" data-class="7º Ano A">GLEYSSON PEREIRA DOS SANTOS</option>
+                        <option value="GUILHERME CARMO RODRIGUES" data-number="10" data-class="7º Ano A">GUILHERME CARMO RODRIGUES</option>
+                        <option value="GUSTAVO HENRIQUE DA SILVA" data-number="11" data-class="7º Ano A">GUSTAVO HENRIQUE DA SILVA</option>
+                        <option value="KELVIN DUARTE GONCALVES" data-number="12" data-class="7º Ano A">KELVIN DUARTE GONCALVES</option>
+                        <option value="KEVIN LELIS DA SILVA SIMAO" data-number="13" data-class="7º Ano A">KEVIN LELIS DA SILVA SIMAO</option>
+                        <option value="LAURA VITORIA ROCHA" data-number="14" data-class="7º Ano A">LAURA VITORIA ROCHA</option>
+                        <option value="LUCAS EDUARDO DA SILVA SANTANA" data-number="17" data-class="7º Ano A">LUCAS EDUARDO DA SILVA SANTANA</option>
+                        <option value="MIGUEL LIMA DE MESQUITA" data-number="21" data-class="7º Ano A">MIGUEL LIMA DE MESQUITA</option>
+                        <option value="NICOLAS ROCHA SILVA" data-number="23" data-class="7º Ano A">NICOLAS ROCHA SILVA</option>
+                        <option value="PAOLLA MICHELLINE DOS SANTOS MARQUES" data-number="24" data-class="7º Ano A">PAOLLA MICHELLINE DOS SANTOS MARQUES</option>
+                        <option value="PEDRO HENRIQUE CORREA DE BRITO" data-number="25" data-class="7º Ano A">PEDRO HENRIQUE CORREA DE BRITO</option>
+                        <option value="RAFAEL CORREIA MENDES" data-number="27" data-class="7º Ano A">RAFAEL CORREIA MENDES</option>
+                        <option value="RYAN GABRIEL PEREIRA DE SOUSA" data-number="28" data-class="7º Ano A">RYAN GABRIEL PEREIRA DE SOUSA</option>
+                        <option value="SAMUEL ALVES DA COSTA" data-number="29" data-class="7º Ano A">SAMUEL ALVES DA COSTA</option>
+                        <option value="SOFIA AZEREDO CUBAS" data-number="30" data-class="7º Ano A">SOFIA AZEREDO CUBAS</option>
+                        <option value="SOPHIA LACERDA ANDRADE" data-number="31" data-class="7º Ano A">SOPHIA LACERDA ANDRADE</option>
+                        <option value="THAYLLA DUANNY VENANCIO SCAQUITO" data-number="33" data-class="7º Ano A">THAYLLA DUANNY VENANCIO SCAQUITO</option>
+                        <option value="THAYS RODRIGUES DA SILVA" data-number="34" data-class="7º Ano A">THAYS RODRIGUES DA SILVA</option>
+                        <option value="VICTOR HENRIQUE BENVINDO" data-number="35" data-class="7º Ano A">VICTOR HENRIQUE BENVINDO</option>
+                        <option value="FELIPE GONZALES PATRICIO ALVES" data-number="36" data-class="7º Ano A">FELIPE GONZALES PATRICIO ALVES</option>
+                        <option value="ISAAC FERNANDES DE ANDRADE" data-number="37" data-class="7º Ano A">ISAAC FERNANDES DE ANDRADE</option>
+                        <option value="MIKAELLEN VIEIRA FERNANDES DOS SANTOS" data-number="39" data-class="7º Ano A">MIKAELLEN VIEIRA FERNANDES DOS SANTOS</option>
+                        <option value="BRYAN DINIZ SILVA" data-number="40" data-class="7º Ano A">BRYAN DINIZ SILVA</option>
+                        <option value="RAPHAEL MATHIAS NUNES MIRANDA" data-number="41" data-class="7º Ano A">RAPHAEL MATHIAS NUNES MIRANDA</option>
+                        <option value="LEONARDO DE AVELAR CARVALHO" data-number="42" data-class="7º Ano A">LEONARDO DE AVELAR CARVALHO</option>
+                        <option value="LETICIA CUSTODIO LIMA" data-number="44" data-class="7º Ano A">LETICIA CUSTODIO LIMA</option>
+                        
+                        <!-- Alunos do 7º Ano B -->
+                        <option value="ANGELLO GABRIEL CUTOLO TEIXEIRA" data-number="1" data-class="7º Ano B">ANGELLO GABRIEL CUTOLO TEIXEIRA</option>
+                        <option value="ARTHUR HENRIQUE MARQUES ENDRES" data-number="2" data-class="7º Ano B">ARTHUR HENRIQUE MARQUES ENDRES</option>
+                        <option value="BIANCA CRISTINA DA SILVA SANTOS" data-number="3" data-class="7º Ano B">BIANCA CRISTINA DA SILVA SANTOS</option>
+                        <option value="BRAYAN DA SILVA FERREIRA" data-number="4" data-class="7º Ano B">BRAYAN DA SILVA FERREIRA</option>
+                        <option value="BRAYAN DUARTE DA SILVA" data-number="5" data-class="7º Ano B">BRAYAN DUARTE DA SILVA</option>
+                        <option value="BRUNO LUIZ NASCIMENTO DA SILVA" data-number="6" data-class="7º Ano B">BRUNO LUIZ NASCIMENTO DA SILVA</option>
+                        <option value="DANIEL RODRIGUES SANTOS DIAS" data-number="7" data-class="7º Ano B">DANIEL RODRIGUES SANTOS DIAS</option>
+                        <option value="DIEGO BARRIO NOVO AMARAL DE ANDRADE" data-number="8" data-class="7º Ano B">DIEGO BARRIO NOVO AMARAL DE ANDRADE</option>
+                        <option value="FABRICIO LORENZO PARMA" data-number="10" data-class="7º Ano B">FABRICIO LORENZO PARMA</option>
+                        <option value="GABRIELA PAULINA FERREIRA MARTINS" data-number="11" data-class="7º Ano B">GABRIELA PAULINA FERREIRA MARTINS</option>
+                        <option value="HYLLARY VICTORIA NERCIR DE FRANÇA" data-number="13" data-class="7º Ano B">HYLLARY VICTORIA NERCIR DE FRANÇA</option>
+                        <option value="JHONAS KEYRRISON TROCATIS DA SILVA" data-number="14" data-class="7º Ano B">JHONAS KEYRRISON TROCATIS DA SILVA</option>
+                        <option value="JULIA VITORIA SEVERA LINS" data-number="15" data-class="7º Ano B">JULIA VITORIA SEVERA LINS</option>
+                        <option value="KAMILLY VITÓRIA RODRIGUES DE SOUZA" data-number="17" data-class="7º Ano B">KAMILLY VITÓRIA RODRIGUES DE SOUZA</option>
+                        <option value="KESIA DOS SANTOS SOSTE" data-number="18" data-class="7º Ano B">KESIA DOS SANTOS SOSTE</option>
+                        <option value="LAURA BORGES AZEVEDO" data-number="19" data-class="7º Ano B">LAURA BORGES AZEVEDO</option>
+                        <option value="LUAN DANTAS NICOLUCCI" data-number="20" data-class="7º Ano B">LUAN DANTAS NICOLUCCI</option>
+                        <option value="LUAN RIBEIRO SILVA" data-number="21" data-class="7º Ano B">LUAN RIBEIRO SILVA</option>
+                        <option value="MANUELA ANGELICA TRIANA DA SILVA" data-number="22" data-class="7º Ano B">MANUELA ANGELICA TRIANA DA SILVA</option>
+                        <option value="MARCELO GOMES THOMAZ" data-number="23" data-class="7º Ano B">MARCELO GOMES THOMAZ</option>
+                        <option value="MARCOS CELIO DE JESUS" data-number="24" data-class="7º Ano B">MARCOS CELIO DE JESUS</option>
+                        <option value="MARIA EDUARDA MACHADO DE LIMA" data-number="26" data-class="7º Ano B">MARIA EDUARDA MACHADO DE LIMA</option>
+                        <option value="NICOLLAS RODRIGUES TAVARES" data-number="28" data-class="7º Ano B">NICOLLAS RODRIGUES TAVARES</option>
+                        <option value="PAULO CESAR LAMBERT GONÇALVES" data-number="30" data-class="7º Ano B">PAULO CESAR LAMBERT GONÇALVES</option>
+                        <option value="VICTOR HUGO PRADO SANTOS DE BARROS" data-number="33" data-class="7º Ano B">VICTOR HUGO PRADO SANTOS DE BARROS</option>
+                        <option value="WALLIF LEANDRO DE JESUS LESSA" data-number="34" data-class="7º Ano B">WALLIF LEANDRO DE JESUS LESSA</option>
+                        <option value="CRISTIANO MARQUES BATISTA DE SOUZA" data-number="36" data-class="7º Ano B">CRISTIANO MARQUES BATISTA DE SOUZA</option>
+                        <option value="SOPHIA FRANCA DE CARVALHO" data-number="37" data-class="7º Ano B">SOPHIA FRANCA DE CARVALHO</option>
+                        <option value="FELIPE DE MEDEIROS OLIVEIRA" data-number="39" data-class="7º Ano B">FELIPE DE MEDEIROS OLIVEIRA</option>
+                        <option value="PEDRO HENRIQUE OLIVEIRA GOMES" data-number="40" data-class="7º Ano B">PEDRO HENRIQUE OLIVEIRA GOMES</option>
+                        <option value="PIETRO MARTINS NOBRE" data-number="41" data-class="7º Ano B">PIETRO MARTINS NOBRE</option>
+                        <option value="VINNICIUS RYAN CARDOSO PEREIRA DA SILVA" data-number="42" data-class="7º Ano B">VINNICIUS RYAN CARDOSO PEREIRA DA SILVA</option>
+                    </select>
+                </div>
+                <div class="info-group">
+                    <label for="student-number">Nº:</label>
+                    <input type="text" id="student-number" readonly>
+                </div>
+                <div class="info-group">
+                    <label for="student-class">SÉRIE:</label>
+                    <input type="text" id="student-class" readonly>
+                </div>
+                <div class="info-group">
+                    <label for="activity-date">DATA:</label>
+                    <input type="text" id="activity-date" value="">
+                </div>
+            </div>
+            <div class="activity-title">ATIVIDADE DE CIÊNCIAS (4º BIMESTRE)</div>
+        </header>
+        
+        <div class="questions-container">
+            <div class="question" id="q1">
+                <div class="question-number">Questão 1</div>
+                <div class="question-text">
+                    <p>O Sistema Único de Saúde (SUS) foi criado no Brasil como resultado do movimento da Reforma Sanitária e reflete a responsabilidade do Estado em garantir o direito à saúde para todos os cidadãos. De acordo com a Constituição Federal de 1988, a saúde é um direito de todos e dever do Estado.</p>
+                    <p>Analise a imagem abaixo que representa um dos princípios do SUS:</p>
+                    <img src="https://via.placeholder.com/600x200/3b82f6/FFFFFF?text=Imagem+do+Sistema+Único+de+Saúde+(SUS)" alt="Representação do SUS" class="question-image">
+                    <p>Com base nos princípios do SUS e na imagem apresentada, qual dos seguintes princípios garante que todos os cidadãos, sem distinção, tenham direito à saúde assegurado pelo Estado?</p>
+                </div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q1')">
+                        <input type="radio" name="q1" value="a"> 
+                        A) Integralidade, que considera a pessoa como um todo, articulando promoção, prevenção, tratamento e reabilitação.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q1')">
+                        <input type="radio" name="q1" value="b"> 
+                        B) Equidade, que investe mais onde e para quem mais precisa, reduzindo desigualdades.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q1')">
+                        <input type="radio" name="q1" value="c"> 
+                        C) Universalização, que assegura o direito à saúde para todos os cidadãos, sem distinção.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q1')">
+                        <input type="radio" name="q1" value="d"> 
+                        D) Regionalização, que articula os serviços de saúde entre diferentes regiões.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q1')">
+                        <input type="radio" name="q1" value="e"> 
+                        E) Participação social, que envolve a população nas decisões sobre saúde através de conselhos e conferências.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question" id="q2">
+                <div class="question-number">Questão 2</div>
+                <div class="question-text">
+                    <p>Os vírus são entidades biológicas que despertam debates na comunidade científica sobre se devem ou não ser considerados seres vivos. Eles possuem características que os diferenciam de outros organismos.</p>
+                    <p>Observe a imagem abaixo que representa a estrutura básica de um vírus:</p>
+                    <img src="https://via.placeholder.com/600x200/10b981/FFFFFF?text=Estrutura+de+um+Vírus" alt="Estrutura de um vírus" class="question-image">
+                    <p>Com base na imagem e nos conhecimentos sobre vírus, qual das seguintes afirmações melhor descreve uma característica comum a todos os vírus?</p>
+                </div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q2')">
+                        <input type="radio" name="q2" value="a"> 
+                        A) Possuem metabolismo próprio e são capazes de se reproduzir independentemente.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q2')">
+                        <input type="radio" name="q2" value="b"> 
+                        B) São formados por material genético (DNA ou RNA) envolto por uma cápsula proteica chamada capsídeo.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q2')">
+                        <input type="radio" name="q2" value="c"> 
+                        C) Todos possuem um envelope lipídico externo que envolve o nucleocapsídeo.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q2')">
+                        <input type="radio" name="q2" value="d"> 
+                        D) São considerados seres vivos por possuírem todas as características dos seres vivos.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q2')">
+                        <input type="radio" name="q2" value="e"> 
+                        E) Realizam todas as funções vitais, incluindo homeostase e resposta a estímulos.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question" id="q3">
+                <div class="question-number">Questão 3</div>
+                <div class="question-text">
+                    <p>As doenças virais podem ser transmitidas de diferentes formas e afetam diversos sistemas do corpo humano. A dengue, por exemplo, é uma arbovirose transmitida por mosquitos que pode apresentar formas graves.</p>
+                    <p>Observe a imagem abaixo que representa o ciclo de transmissão da dengue:</p>
+                    <img src="https://via.placeholder.com/600x200/ef4444/FFFFFF?text=Ciclo+de+Transmissão+da+Dengue" alt="Ciclo de transmissão da dengue" class="question-image">
+                    <p>Com base na imagem e nos conhecimentos sobre doenças virais, qual das seguintes afirmações sobre a transmissão da dengue está correta?</p>
+                </div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q3')">
+                        <input type="radio" name="q3" value="a"> 
+                        A) A dengue é transmitida diretamente de pessoa para pessoa através do contato com secreções respiratórias.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q3')">
+                        <input type="radio" name="q3" value="b"> 
+                        B) O vírus da dengue é transmitido principalmente pela picada da fêmea do mosquito Aedes aegypti infectada.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q3')">
+                        <input type="radio" name="q3" value="c"> 
+                        C) A dengue pode ser prevenida através da vacinação anual, assim como a gripe.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q3')">
+                        <input type="radio" name="q3" value="d"> 
+                        D) A transmissão da dengue ocorre principalmente em ambientes hospitalares através de equipamentos contaminados.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q3')">
+                        <input type="radio" name="q3" value="e"> 
+                        E) O vírus da dengue é transmitido através do consumo de água ou alimentos contaminados.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question" id="q4">
+                <div class="question-number">Questão 4</div>
+                <div class="question-text">
+                    <p>As bactérias são microrganismos procarióticos que desempenham papéis importantes nos ecossistemas e no corpo humano. Elas possuem estruturas específicas que permitem sua sobrevivência em diferentes ambientes.</p>
+                    <p>Observe a imagem abaixo que representa a estrutura geral de uma bactéria:</p>
+                    <img src="https://via.placeholder.com/600x200/8b5cf6/FFFFFF?text=Estrutura+de+uma+Bactéria" alt="Estrutura de uma bactéria" class="question-image">
+                    <p>Com base na imagem e nos conhecimentos sobre bactérias, qual das seguintes estruturas é responsável pela locomoção bacteriana e permite que percebam o ambiente ao seu redor?</p>
+                </div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q4')">
+                        <input type="radio" name="q4" value="a"> 
+                        A) Parede celular, que fornece sustentação e proteção contra patógenos.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q4')">
+                        <input type="radio" name="q4" value="b"> 
+                        B) Membrana plasmática, que controla a permeabilidade seletiva e protege as estruturas celulares.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q4')">
+                        <input type="radio" name="q4" value="c"> 
+                        C) Flagelos, que permitem a locomoção, percepção do ambiente e interação com outras bactérias.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q4')">
+                        <input type="radio" name="q4" value="d"> 
+                        D) Fimbrias, que permitem a fixação a superfícies.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q4')">
+                        <input type="radio" name="q4" value="e"> 
+                        E) Ribossomos, que sintetizam proteínas essenciais para o funcionamento celular.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question" id="q5">
+                <div class="question-number">Questão 5</div>
+                <div class="question-text">
+                    <p>As doenças bacterianas podem ser combatidas com antibióticos, mas o uso inadequado desses medicamentos tem contribuído para o surgimento de bactérias resistentes, um grave problema de saúde pública.</p>
+                    <p>Observe a imagem abaixo que representa o mecanismo de ação dos antibióticos e o desenvolvimento de resistência:</p>
+                    <img src="https://via.placeholder.com/600x200/f59e0b/FFFFFF?text=Resistência+Bacteriana+a+Antibióticos" alt="Resistência bacteriana a antibióticos" class="question-image">
+                    <p>Com base na imagem e nos conhecimentos sobre resistência bacteriana, qual das seguintes ações NÃO contribui para o desenvolvimento de bactérias resistentes a antibióticos?</p>
+                </div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q5')">
+                        <input type="radio" name="q5" value="a"> 
+                        A) Uso de antibióticos sem prescrição médica para tratar infecções virais como gripes e resfriados.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q5')">
+                        <input type="radio" name="q5" value="b"> 
+                        B) Interrupção do tratamento com antibióticos antes do tempo recomendado pelo médico.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q5')">
+                        <input type="radio" name="q5" value="c"> 
+                        C) Uso de antibióticos na pecuária para promover o crescimento dos animais.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q5')">
+                        <input type="radio" name="q5" value="d"> 
+                        D) Seguimento rigoroso das orientações médicas sobre dosagem e duração do tratamento com antibióticos.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q5')">
+                        <input type="radio" name="q5" value="e"> 
+                        E) Automedicação com antibióticos que sobraram de tratamentos anteriores.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question" id="q6">
+                <div class="question-number">Questão 6</div>
+                <div class="question-text">
+                    <p>A vigilância epidemiológica é fundamental para monitorar e controlar a disseminação de doenças na população. Diferentes termos são utilizados para classificar a ocorrência de doenças conforme sua distribuição geográfica e temporal.</p>
+                    <p>Observe a imagem abaixo que representa os conceitos de surto, epidemia, endemia e pandemia:</p>
+                    <img src="https://via.placeholder.com/600x200/06b6d4/FFFFFF?text=Surto,+Epidemia,+Endemia+e+Pandemia" alt="Conceitos de surto, epidemia, endemia e pandemia" class="question-image">
+                    <p>Com base na imagem e nos conhecimentos sobre vigilância epidemiológica, qual das seguintes definições descreve corretamente o conceito de ENDEMIA?</p>
+                </div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q6')">
+                        <input type="radio" name="q6" value="a"> 
+                        A) Aumento localizado e repentino do número de casos de uma doença em um local ou região específica.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q6')">
+                        <input type="radio" name="q6" value="b"> 
+                        B) Ocorrência de surtos em diversas regiões, podendo ser municipal, estadual ou nacional, mas não mundial.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q6')">
+                        <input type="radio" name="q6" value="c"> 
+                        C) Disseminação de uma doença por diversas regiões do planeta, afetando vários continentes.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q6')">
+                        <input type="radio" name="q6" value="d"> 
+                        D) Doença que circula dentro do número de casos esperado, é recorrente e pode ser sazonal, estando controlada na população.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q6')">
+                        <input type="radio" name="q6" value="e"> 
+                        E) Aumento significativo e inesperado no número de casos de uma doença em nível global.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question" id="q7">
+                <div class="question-number">Questão 7</div>
+                <div class="question-text">
+                    <p>Os vírus podem apresentar diferentes formatos e estruturas, que são classificados em três tipos principais: poliédricos, helicoidais e complexos. Essas características estão relacionadas com sua capacidade de infectar células hospedeiras.</p>
+                    <p>Observe a imagem abaixo que representa diferentes formatos de vírus:</p>
+                    <img src="https://via.placeholder.com/600x200/84cc16/FFFFFF?text=Formatos+de+Vírus" alt="Formatos de vírus" class="question-image">
+                    <p>Com base na imagem e nos conhecimentos sobre a diversidade viral, qual das seguintes afirmações sobre a estrutura dos vírus está CORRETA?</p>
+                </div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q7')">
+                        <input type="radio" name="q7" value="a"> 
+                        A) Todos os vírus possuem envelope lipídico externo que envolve o nucleocapsídeo.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q7')">
+                        <input type="radio" name="q7" value="b"> 
+                        B) Os vírus complexos, como os bacteriófagos, possuem estruturas adicionais como cauda e fibras caudais.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q7')">
+                        <input type="radio" name="q7" value="c"> 
+                        C) Os vírus helicoidais possuem formato esférico com capsídeos simétricos.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q7')">
+                        <input type="radio" name="q7" value="d"> 
+                        D) Os vírus poliédricos têm formato de hélice com o material genético enrolado dentro do capsídeo.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q7')">
+                        <input type="radio" name="q7" value="e"> 
+                        E) A estrutura viral não influencia na capacidade do vírus de infectar células específicas.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question" id="q8">
+                <div class="question-number">Questão 8</div>
+                <div class="question-text">
+                    <p>As bactérias desempenham papéis ecossistêmicos fundamentais, incluindo a decomposição da matéria orgânica e a participação em ciclos biogeoquímicos como o ciclo do nitrogênio.</p>
+                    <p>Observe a imagem abaixo que representa o papel das bactérias na fixação do nitrogênio:</p>
+                    <img src="https://via.placeholder.com/600x200/14b8a6/FFFFFF?text=Fixação+do+Nitrogênio+por+Bactérias" alt="Fixação do nitrogênio por bactérias" class="question-image">
+                    <p>Com base na imagem e nos conhecimentos sobre o papel ecológico das bactérias, qual das seguintes afirmações sobre a fixação do nitrogênio está CORRETA?</p>
+                </div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q8')">
+                        <input type="radio" name="q8" value="a"> 
+                        A) As bactérias do gênero Rhizobium transformam o nitrogênio do ar (N₂) em amônia (NH₃), que pode ser utilizada pelas plantas.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q8')">
+                        <input type="radio" name="q8" value="b"> 
+                        B) A fixação do nitrogênio é realizada exclusivamente por bactérias que vivem livremente no solo, sem associação com plantas.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q8')">
+                        <input type="radio" name="q8" value="c"> 
+                        C) As bactérias transformam diretamente o nitrogênio atmosférico em nitrato, que é absorvido pelas plantas.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q8')">
+                        <input type="radio" name="q8" value="d"> 
+                        D) O processo de fixação do nitrogênio não depende de bactérias, sendo realizado apenas por processos físicos e químicos no solo.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q8')">
+                        <input type="radio" name="q8" value="e"> 
+                        E) As bactérias fixadoras de nitrogênio obtêm energia diretamente da luz solar através da fotossíntese.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question" id="q9">
+                <div class="question-number">Questão 9</div>
+                <div class="question-text">
+                    <p>A tuberculose é uma doença infecciosa causada pela bactéria Mycobacterium tuberculosis, também conhecida como bacilo de Koch. É uma doença que afeta prioritariamente os pulmões, mas pode atingir outros órgãos.</p>
+                    <p>Observe a imagem abaixo que representa a bactéria causadora da tuberculose:</p>
+                    <img src="https://via.placeholder.com/600x200/d946ef/FFFFFF?text=Bactéria+da+Tuberculose" alt="Bactéria da tuberculose" class="question-image">
+                    <p>Com base na imagem e nos conhecimentos sobre a tuberculose, qual das seguintes afirmações sobre a prevenção e tratamento desta doença está CORRETA?</p>
+                </div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q9')">
+                        <input type="radio" name="q9" value="a"> 
+                        A) A vacina BCG, disponível no SUS, deve ser ministrada às crianças ao nascer e protege contra todas as formas de tuberculose.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q9')">
+                        <input type="radio" name="q9" value="b"> 
+                        B) O tratamento da tuberculose é realizado com antibióticos por no mínimo seis meses e é gratuito no SUS.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q9')">
+                        <input type="radio" name="q9" value="c"> 
+                        C) A tuberculose não é uma doença transmissível, portanto não requer medidas de isolamento ou prevenção.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q9')">
+                        <input type="radio" name="q9" value="d"> 
+                        D) A transmissão da tuberculose ocorre principalmente através do consumo de água ou alimentos contaminados.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q9')">
+                        <input type="radio" name="q9" value="e"> 
+                        E) Não existe vacina contra a tuberculose, sendo a prevenção baseada apenas no uso de máscaras em ambientes fechados.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question" id="q10">
+                <div class="question-number">Questão 10</div>
+                <div class="question-text">
+                    <p>A pandemia de COVID-19, causada pelo coronavírus SARS-CoV-2, impactou profundamente a sociedade global e destacou a importância dos sistemas de saúde e da vigilância epidemiológica.</p>
+                    <p>Observe a imagem abaixo que representa a linha do tempo da pandemia de COVID-19:</p>
+                    <img src="https://via.placeholder.com/600x200/f97316/FFFFFF?text=Linha+do+Tempo+da+Pandemia+de+COVID-19" alt="Linha do tempo da pandemia de COVID-19" class="question-image">
+                    <p>Com base na imagem e nos conhecimentos sobre a pandemia de COVID-19, qual das seguintes afirmações sobre as medidas de controle da pandemia está CORRETA?</p>
+                </div>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q10')">
+                        <input type="radio" name="q10" value="a"> 
+                        A) A Organização Mundial da Saúde (OMS) é responsável por declarar quando uma doença se torna uma pandemia e emitir alertas para que os países tomem providências.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q10')">
+                        <input type="radio" name="q10" value="b"> 
+                        B) As vacinas contra COVID-19 foram desenvolvidas em tempo recorde, mas não foram eficazes no controle da pandemia.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q10')">
+                        <input type="radio" name="q10" value="c"> 
+                        C) A OMS declarou o fim da Emergência de Saúde Pública Global da COVID-19 em março de 2022, antes do desenvolvimento das vacinas.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q10')">
+                        <input type="radio" name="q10" value="d"> 
+                        D) Os lockdowns e outras medidas restritivas não tiveram impacto significativo na redução da transmissão do vírus.
+                    </div>
+                    <div class="option" onclick="selectOption(this, 'q10')">
+                        <input type="radio" name="q10" value="e"> 
+                        E) A pandemia de COVID-19 foi a primeira e única pandemia declarada pela OMS no século XXI.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="result" id="result-message"></div>
+        
+        <div class="buttons">
+            <button id="submit-btn" onclick="submitAnswers()">Enviar Respostas</button>
+            <button id="clear-btn" onclick="clearAnswers()">Limpar Respostas</button>
+        </div>
+    </div>
+
+    <script>
+        // Definir data atual
+        document.getElementById('activity-date').value = new Date().toLocaleDateString('pt-BR');
+        
+        // Preencher número e série automaticamente ao selecionar aluno
+        document.getElementById('student-name').addEventListener('change', function() {
+            const selectedOption = this.options[this.selectedIndex];
+            document.getElementById('student-number').value = selectedOption.getAttribute('data-number') || '';
+            document.getElementById('student-class').value = selectedOption.getAttribute('data-class') || '';
+        });
+        
+        // Função para selecionar uma opção
+        function selectOption(element, questionId) {
+            const options = document.querySelectorAll(`#${questionId} .option`);
+            options.forEach(opt => {
+                opt.classList.remove('selected');
+                const radio = opt.querySelector('input[type="radio"]');
+                if (radio) radio.checked = false;
+            });
+            
+            element.classList.add('selected');
+            const radio = element.querySelector('input[type="radio"]');
+            if (radio) radio.checked = true;
+        }
+        
+        // Função para limpar todas as respostas
+        function clearAnswers() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(opt => {
+                opt.classList.remove('selected');
+                const radio = opt.querySelector('input[type="radio"]');
+                if (radio) radio.checked = false;
+            });
+            
+            const resultMessage = document.getElementById('result-message');
+            resultMessage.style.display = 'none';
+        }
+        
+        // Função para enviar respostas
+        function submitAnswers() {
+            const studentName = document.getElementById('student-name').value;
+            const studentNumber = document.getElementById('student-number').value;
+            const studentClass = document.getElementById('student-class').value;
+            
+            if (!studentName) {
+                alert('Por favor, selecione seu nome na lista.');
+                return;
+            }
+            
+            // Verificar se todas as questões foram respondidas
+            let allAnswered = true;
+            for (let i = 1; i <= 10; i++) {
+                const questionName = `q${i}`;
+                const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+                if (!selectedOption) {
+                    allAnswered = false;
+                    break;
+                }
+            }
+            
+            if (!allAnswered) {
+                alert('Por favor, responda todas as questões antes de enviar.');
+                return;
+            }
+            
+            // Calcular nota (cada questão vale 1 ponto)
+            let score = 0;
+            const correctAnswers = {
+                'q1': 'c',
+                'q2': 'b',
+                'q3': 'b',
+                'q4': 'c',
+                'q5': 'd',
+                'q6': 'd',
+                'q7': 'b',
+                'q8': 'a',
+                'q9': 'b',
+                'q10': 'a'
+            };
+            
+            for (let i = 1; i <= 10; i++) {
+                const questionName = `q${i}`;
+                const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+                if (selectedOption && selectedOption.value === correctAnswers[questionName]) {
+                    score++;
+                }
+            }
+            
+            // Exibir resultado
+            const resultMessage = document.getElementById('result-message');
+            resultMessage.textContent = `Parabéns, ${studentName}! Sua nota é ${score}/10.`;
+            resultMessage.className = 'result success';
+            resultMessage.style.display = 'block';
+            
+            // Enviar dados para o Google Sheets via Google Apps Script
+            sendToGoogleSheets(studentName, studentNumber, studentClass, score);
+        }
+        
+        // Função para enviar dados para o Google Sheets
+        function sendToGoogleSheets(studentName, studentNumber, studentClass, score) {
+            // URL do Web App do Google Apps Script (substitua pelo seu)
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwV8p7Y9J8Z7Q6hMwiMdyiXkDENceYawPjjVxqTHc0iyMUwcbuob6KNg/exec';
+            
+            const formData = new FormData();
+            formData.append('studentName', studentName);
+            formData.append('studentNumber', studentNumber);
+            formData.append('studentClass', studentClass);
+            formData.append('score', score);
+            formData.append('timestamp', new Date().toISOString());
+            
+            fetch(scriptURL, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Dados enviados com sucesso para o Google Sheets');
+                } else {
+                    console.error('Erro ao enviar dados para o Google Sheets');
+                }
+            })
+            .catch(error => {
+                console.error('Erro de rede:', error);
+            });
+        }
+    </script>
+</body>
+</html>
