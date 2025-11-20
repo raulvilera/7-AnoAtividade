@@ -28,7 +28,7 @@
         }
         
         header {
-            background-color: #1e3a8a;
+            background: linear-gradient(135deg, #8B0000 0%, #000000 100%);
             color: white;
             padding: 20px;
             text-align: center;
@@ -88,7 +88,7 @@
         }
         
         .activity-title {
-            background-color: #3b82f6;
+            background: linear-gradient(135deg, #8B0000 0%, #000000 100%);
             color: white;
             padding: 10px;
             text-align: center;
@@ -102,11 +102,12 @@
         }
         
         .question {
-            background-color: #dbeafe;
+            background-color: #f9f9f9;
             padding: 20px;
             margin-bottom: 2cm;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #8B0000;
         }
         
         .question:last-child {
@@ -117,7 +118,7 @@
             font-weight: bold;
             margin-bottom: 10px;
             font-size: 1.1rem;
-            color: #1e3a8a;
+            color: #8B0000;
         }
         
         .question-text {
@@ -131,6 +132,7 @@
             margin: 10px 0;
             border-radius: 5px;
             display: block;
+            border: 1px solid #ddd;
         }
         
         .options {
@@ -140,19 +142,20 @@
         .option {
             margin-bottom: 10px;
             padding: 10px;
-            background-color: #eff6ff;
+            background-color: #fff;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.2s;
+            border: 1px solid #ddd;
         }
         
         .option:hover {
-            background-color: #dbeafe;
+            background-color: #f5f5f5;
         }
         
         .option.selected {
-            background-color: #bfdbfe;
-            border-left: 4px solid #3b82f6;
+            background-color: #f0e6e6;
+            border-left: 4px solid #8B0000;
         }
         
         .option input {
@@ -163,7 +166,7 @@
             display: flex;
             justify-content: space-between;
             padding: 20px;
-            background-color: #f8fafc;
+            background-color: #f8f8f8;
             border-top: 1px solid #e2e8f0;
         }
         
@@ -177,21 +180,21 @@
         }
         
         #submit-btn {
-            background-color: #10b981;
+            background-color: #8B0000;
             color: white;
         }
         
         #submit-btn:hover {
-            background-color: #059669;
+            background-color: #A52A2A;
         }
         
         #clear-btn {
-            background-color: #ef4444;
+            background-color: #333;
             color: white;
         }
         
         #clear-btn:hover {
-            background-color: #dc2626;
+            background-color: #555;
         }
         
         .result {
@@ -310,31 +313,29 @@
             <div class="question" id="q1">
                 <div class="question-number">Questão 1</div>
                 <div class="question-text">
-                    <p>O Sistema Único de Saúde (SUS) foi criado no Brasil como resultado do movimento da Reforma Sanitária e reflete a responsabilidade do Estado em garantir o direito à saúde para todos os cidadãos. De acordo com a Constituição Federal de 1988, a saúde é um direito de todos e dever do Estado.</p>
-                    <p>Analise a imagem abaixo que representa um dos princípios do SUS:</p>
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEheXhVx8Riqn75FHkRM5uNhyphenhyphenjCWURX6JD8t5pRPFDiXq5-ItqH6XI9o_26j7Tl9Nlq9M1HJqHOcgBk6kT5epfretw4mZM7ycppWybQkYIHiva5239X4GDbMPSSHSEjDXSw-oqgk-UJgZ0jY62QvEz8jKVWF4Dv243PhDUTyklacchEemDmOay-nhTxBboqU/s751/SUS.JPG">
-                    <p>Com base nos princípios do SUS e na imagem apresentada, qual dos seguintes princípios garante que todos os cidadãos, sem distinção, tenham direito à saúde assegurado pelo Estado?</p>
+                    <p>O sistema imunológico humano possui diferentes tipos de defesa para proteger nosso corpo contra agentes invasores como vírus, bactérias e fungos. A imunidade inata é a primeira linha de defesa e está presente desde o nascimento, enquanto a imunidade adaptativa desenvolve-se ao longo da vida através do contato com patógenos.</p>
+                    <p>Considerando essas informações, qual das seguintes alternativas descreve corretamente uma característica da imunidade inata?</p>
                 </div>
                 <div class="options">
                     <div class="option" onclick="selectOption(this, 'q1')">
                         <input type="radio" name="q1" value="a"> 
-                        A) Integralidade, que considera a pessoa como um todo, articulando promoção, prevenção, tratamento e reabilitação.
+                        A) É específica para cada tipo de patógeno e produz células de memória que garantem proteção duradoura.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q1')">
                         <input type="radio" name="q1" value="b"> 
-                        B) Equidade, que investe mais onde e para quem mais precisa, reduzindo desigualdades.
+                        B) Atua de forma rápida e não específica, combatendo qualquer tipo de invasor através de barreiras físicas como a pele e células de defesa como os macrófagos.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q1')">
                         <input type="radio" name="q1" value="c"> 
-                        C) Universalização, que assegura o direito à saúde para todos os cidadãos, sem distinção.
+                        C) É adquirida apenas através da vacinação ou da amamentação, fornecendo anticorpos prontos para combater infecções.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q1')">
                         <input type="radio" name="q1" value="d"> 
-                        D) Regionalização, que articula os serviços de saúde entre diferentes regiões.
+                        D) Desenvolve-se apenas após a primeira infecção por um patógeno específico e não oferece proteção contra outros tipos de microrganismos.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q1')">
                         <input type="radio" name="q1" value="e"> 
-                        E) Participação social, que envolve a população nas decisões sobre saúde através de conselhos e conferências.
+                        E) É mediada principalmente pelos linfócitos B e T, que produzem anticorpos específicos para cada antígeno.
                     </div>
                 </div>
             </div>
@@ -342,31 +343,29 @@
             <div class="question" id="q2">
                 <div class="question-number">Questão 2</div>
                 <div class="question-text">
-                    <p>Os vírus são entidades biológicas que despertam debates na comunidade científica sobre se devem ou não ser considerados seres vivos. Eles possuem características que os diferenciam de outros organismos.</p>
-                    <p>Observe a imagem abaixo que representa a estrutura básica de um vírus:</p>
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaQc9jy1akZlAZRKhiEPhIHjcYpCd2EL6EC3sexfjY4aNCO63Led0dfQMzftcLQqMiMoXX8ecRhd2kxIF8ulNHWTagt0iw76a8JUGWT9Rux5DX8ge-O3asqB7NIqO6ryiBppPdb6LLkyxmO7oQje5Lr9mIpr1ov5bmm4nqQcgaA9ZYf-EJGBT8QPj9gYm7/s386/VIRUS.JPG">
-                    <p>Com base na imagem e nos conhecimentos sobre vírus, qual das seguintes afirmações melhor descreve uma característica comum a todos os vírus?</p>
+                    <p>As vacinas são uma das maiores conquistas da medicina moderna, responsáveis por salvar milhões de vidas anualmente. Elas funcionam estimulando o sistema imunológico a produzir uma resposta protetora sem causar a doença.</p>
+                    <p>Com base no funcionamento das vacinas, qual das seguintes alternativas explica corretamente como elas preparam o organismo para combater futuras infecções?</p>
                 </div>
                 <div class="options">
                     <div class="option" onclick="selectOption(this, 'q2')">
                         <input type="radio" name="q2" value="a"> 
-                        A) Possuem metabolismo próprio e são capazes de se reproduzir independentemente.
+                        A) As vacinas contêm anticorpos prontos que circulam no sangue e neutralizam imediatamente os patógenos.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q2')">
                         <input type="radio" name="q2" value="b"> 
-                        B) São formados por material genético (DNA ou RNA) envolto por uma cápsula proteica chamada capsídeo.
+                        B) As vacinas introduzem versões enfraquecidas ou inativadas do patógeno, estimulando a produção de células de memória que respondem rapidamente em caso de infecção real.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q2')">
                         <input type="radio" name="q2" value="c"> 
-                        C) Todos possuem um envelope lipídico externo que envolve o nucleocapsídeo.
+                        C) As vacinas contêm medicamentos antibióticos que eliminam qualquer patógeno que entre no organismo.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q2')">
                         <input type="radio" name="q2" value="d"> 
-                        D) São considerados seres vivos por possuírem todas as características dos seres vivos.
+                        D) As vacinas fortalecem diretamente as barreiras físicas do corpo, como a pele e as mucosas, tornando-as impermeáveis aos patógenos.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q2')">
                         <input type="radio" name="q2" value="e"> 
-                        E) Realizam todas as funções vitais, incluindo homeostase e resposta a estímulos.
+                        E) As vacinas modificam geneticamente as células do sistema imunológico, tornando-as permanentemente resistentes a todas as doenças.
                     </div>
                 </div>
             </div>
@@ -374,31 +373,29 @@
             <div class="question" id="q3">
                 <div class="question-number">Questão 3</div>
                 <div class="question-text">
-                    <p>As doenças virais podem ser transmitidas de diferentes formas e afetam diversos sistemas do corpo humano. A dengue, por exemplo, é uma arbovirose transmitida por mosquitos que pode apresentar formas graves.</p>
-                    <p>Observe a imagem abaixo que representa o ciclo de transmissão da dengue:</p>
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKSPSUEIg39YjvCvbKII1g61Gin-ox56bp5-1kEMcljbfPS9zwUnewI6nHNdSU-MJaUDC1-iSJzxWSAW7D1ESf297mVeiwTPrV8Vw0SzfeD_HS9pXUFwSPUq7GDK_JCM8JVfZUGXYdJL4b1FI9GyqPmDuu7SQDVS-NJOgIl_qJP4iiLGRmeua_2MexOfsy/s540/DENGUE.JPG" class="question-image">
-                    <p>Com base na imagem e nos conhecimentos sobre doenças virais, qual das seguintes afirmações sobre a transmissão da dengue está correta?</p>
+                    <p>O saneamento básico é fundamental para a saúde pública, pois envolve serviços essenciais como abastecimento de água potável, coleta e tratamento de esgoto, limpeza urbana e drenagem de águas pluviais. A falta desses serviços pode levar a diversas doenças.</p>
+                    <p>Considerando a importância do saneamento básico, qual das seguintes situações representa uma consequência direta da falta de acesso a esses serviços?</p>
                 </div>
                 <div class="options">
                     <div class="option" onclick="selectOption(this, 'q3')">
                         <input type="radio" name="q3" value="a"> 
-                        A) A dengue é transmitida diretamente de pessoa para pessoa através do contato com secreções respiratórias.
+                        A) Aumento no número de casos de doenças respiratórias como asma e bronquite devido à poluição do ar.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q3')">
                         <input type="radio" name="q3" value="b"> 
-                        B) O vírus da dengue é transmitido principalmente pela picada da fêmea do mosquito Aedes aegypti infectada.
+                        B) Redução na incidência de doenças transmitidas por mosquitos, como dengue e malária, devido à ausência de água parada.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q3')">
                         <input type="radio" name="q3" value="c"> 
-                        C) A dengue pode ser prevenida através da vacinação anual, assim como a gripe.
+                        C) Aumento na ocorrência de doenças de veiculação hídrica, como diarreias e hepatite A, devido ao consumo de água contaminada.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q3')">
                         <input type="radio" name="q3" value="d"> 
-                        D) A transmissão da dengue ocorre principalmente em ambientes hospitalares através de equipamentos contaminados.
+                        D) Diminuição da mortalidade infantil e aumento da expectativa de vida da população.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q3')">
                         <input type="radio" name="q3" value="e"> 
-                        E) O vírus da dengue é transmitido através do consumo de água ou alimentos contaminados.
+                        E) Melhoria na qualidade da água dos rios e lagos devido à ausência de tratamento de esgoto.
                     </div>
                 </div>
             </div>
@@ -406,31 +403,29 @@
             <div class="question" id="q4">
                 <div class="question-number">Questão 4</div>
                 <div class="question-text">
-                    <p>As bactérias são microrganismos procarióticos que desempenham papéis importantes nos ecossistemas e no corpo humano. Elas possuem estruturas específicas que permitem sua sobrevivência em diferentes ambientes.</p>
-                    <p>Observe a imagem abaixo que representa a estrutura geral de uma bactéria:</p>
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4OTX1cONBtFuD_r4oiO0J4Ox5W9CQQGLiNoex3Kqito61fmwmbgxRfeQu_RJb-XlTDwvnMUotdwW6IqFl64ZQBu90KsRezR8yuawQ6MqjmZ19EbNUq7CYQea3-mmBDZe389B7q3r3G5DTm8XJeWdots1EQ7vrmWX_1L4lS7Jlbp_KWtQkrWpCzGcuxFi5/s936/BACT%C3%89RIA.JPG" class="question-image">
-                    <p>Com base na imagem e nos conhecimentos sobre bactérias, qual das seguintes estruturas é responsável pela locomoção bacteriana e permite que percebam o ambiente ao seu redor?</p>
+                    <p>A imunidade de rebanho, também conhecida como imunidade coletiva, é um conceito importante em saúde pública que ocorre quando uma grande parte da população está vacinada contra uma doença, protegendo indiretamente aqueles que não podem ser vacinados.</p>
+                    <p>Com base nesse conceito, qual das seguintes afirmações sobre a imunidade de rebanho está correta?</p>
                 </div>
                 <div class="options">
                     <div class="option" onclick="selectOption(this, 'q4')">
                         <input type="radio" name="q4" value="a"> 
-                        A) Parede celular, que fornece sustentação e proteção contra patógenos.
+                        A) A imunidade de rebanho só é eficaz quando 100% da população está vacinada.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q4')">
                         <input type="radio" name="q4" value="b"> 
-                        B) Membrana plasmática, que controla a permeabilidade seletiva e protege as estruturas celulares.
+                        B) A imunidade de rebanho protege apenas as pessoas vacinadas, não tendo benefício para os não vacinados.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q4')">
                         <input type="radio" name="q4" value="c"> 
-                        C) Flagelos, que permitem a locomoção, percepção do ambiente e interação com outras bactérias.
+                        C) Quando a maioria da população está imune, a circulação do patógeno diminui, reduzindo o risco de infecção para todos.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q4')">
                         <input type="radio" name="q4" value="d"> 
-                        D) Fimbrias, que permitem a fixação a superfícies.
+                        D) A imunidade de rebanho substitui a necessidade de vacinação individual, pois garante proteção sem a necessidade de tomar vacinas.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q4')">
                         <input type="radio" name="q4" value="e"> 
-                        E) Ribossomos, que sintetizam proteínas essenciais para o funcionamento celular.
+                        E) A imunidade de rebanho é alcançada apenas quando todas as pessoas da comunidade contraem a doença naturalmente.
                     </div>
                 </div>
             </div>
@@ -438,31 +433,29 @@
             <div class="question" id="q5">
                 <div class="question-number">Questão 5</div>
                 <div class="question-text">
-                    <p>As doenças bacterianas podem ser combatidas com antibióticos, mas o uso inadequado desses medicamentos tem contribuído para o surgimento de bactérias resistentes, um grave problema de saúde pública.</p>
-                    <p>Observe a imagem abaixo que representa o mecanismo de ação dos antibióticos e o desenvolvimento de resistência:</p>
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7X7-SZfkyZiZ99dm7u8u1yiHx-xgV3goL0tU45iTaLJN9zOUA6WtGvUHYhrG323Kp2N0xKy7atMtWtcto8XPnOLcdJIl_reOdQHQQ62R0jazedWjWxg71YA12OM5YgpfVKIjvhOnXRLpnc6CUyWQCvqFQW7RZRvO54qOrcm65APPNuPnVZ_xsaSHe_p2S/s637/TRANSMISS%C3%83O.JPG" class="question-image">
-                    <p>Com base na imagem e nos conhecimentos sobre resistência bacteriana, qual das seguintes ações NÃO contribui para o desenvolvimento de bactérias resistentes a antibióticos?</p>
+                    <p>O Programa Nacional de Imunizações (PNI) é uma política pública brasileira criada em 1973 que garante o acesso gratuito a vacinas para a população. Esse programa é reconhecido internacionalmente por sua abrangência e eficácia.</p>
+                    <p>Considerando a importância do PNI, qual das seguintes alternativas descreve corretamente um de seus principais objetivos?</p>
                 </div>
                 <div class="options">
                     <div class="option" onclick="selectOption(this, 'q5')">
                         <input type="radio" name="q5" value="a"> 
-                        A) Uso de antibióticos sem prescrição médica para tratar infecções virais como gripes e resfriados.
+                        A) Fornecer vacinas apenas para crianças menores de 5 anos, pois são mais vulneráveis a doenças.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q5')">
                         <input type="radio" name="q5" value="b"> 
-                        B) Interrupção do tratamento com antibióticos antes do tempo recomendado pelo médico.
+                        B) Garantir o acesso universal e gratuito a vacinas para prevenir doenças infecciosas e reduzir a mortalidade.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q5')">
                         <input type="radio" name="q5" value="c"> 
-                        C) Uso de antibióticos na pecuária para promover o crescimento dos animais.
+                        C) Substituir o tratamento de doenças pelo uso preventivo de vacinas, eliminando a necessidade de hospitais e postos de saúde.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q5')">
                         <input type="radio" name="q5" value="d"> 
-                        D) Seguimento rigoroso das orientações médicas sobre dosagem e duração do tratamento com antibióticos.
+                        D) Fornecer vacinas apenas para doenças consideradas erradicadas, como a varíola e a poliomielite.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q5')">
                         <input type="radio" name="q5" value="e"> 
-                        E) Automedicação com antibióticos que sobraram de tratamentos anteriores.
+                        E) Restringir o acesso a vacinas para populações de alto risco, como idosos e gestantes, para evitar efeitos colaterais.
                     </div>
                 </div>
             </div>
@@ -470,31 +463,29 @@
             <div class="question" id="q6">
                 <div class="question-number">Questão 6</div>
                 <div class="question-text">
-                    <p>A vigilância epidemiológica é fundamental para monitorar e controlar a disseminação de doenças na população. Diferentes termos são utilizados para classificar a ocorrência de doenças conforme sua distribuição geográfica e temporal.</p>
-                    <p>Observe a imagem abaixo que representa os conceitos de surto, epidemia, endemia e pandemia:</p>
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjECwkzK3z50OWyx8XZ5kXmiZ0Wf-_pnBRqhXulaip5e48b-yHVu25d1Ose-FK13fo5FzJn-wTb8RFdxkocXnW24rPYuNy_r4iw8Nw1hT-vp1j-5qDWMEeQwXTulm0te9cOidj25kGs8KcYe-Ltf1QVqYwnFvjb2mm0DlLOZfOJSGpUxIUtpVm5zuUQmSo5/s957/DISTIN%C3%87%C3%83O.JPG" alt="Conceitos de surto, epidemia, endemia e pandemia" class="question-image">
-                    <p>Com base na imagem e nos conhecimentos sobre vigilância epidemiológica, qual das seguintes definições descreve corretamente o conceito de ENDEMIA?</p>
+                    <p>As células do sistema imunológico, também conhecidas como leucócitos ou glóbulos brancos, possuem funções específicas na defesa do organismo. Entre elas, destacam-se os linfócitos, os macrófagos e as células natural killer (NK).</p>
+                    <p>Com base nas funções dessas células, qual das seguintes alternativas associa corretamente o tipo de célula com sua função principal?</p>
                 </div>
                 <div class="options">
                     <div class="option" onclick="selectOption(this, 'q6')">
                         <input type="radio" name="q6" value="a"> 
-                        A) Aumento localizado e repentino do número de casos de uma doença em um local ou região específica.
+                        A) Linfócitos B - produzem anticorpos que neutralizam patógenos e toxinas.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q6')">
                         <input type="radio" name="q6" value="b"> 
-                        B) Ocorrência de surtos em diversas regiões, podendo ser municipal, estadual ou nacional, mas não mundial.
+                        B) Macrófagos - produzem perforinas que destroem células infectadas por vírus.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q6')">
                         <input type="radio" name="q6" value="c"> 
-                        C) Disseminação de uma doença por diversas regiões do planeta, afetando vários continentes.
+                        C) Células natural killer (NK) - realizam a fagocitose de bactérias e outros microrganismos.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q6')">
                         <input type="radio" name="q6" value="d"> 
-                        D) Doença que circula dentro do número de casos esperado, é recorrente e pode ser sazonal, estando controlada na população.
+                        D) Linfócitos T - produzem histamina que desencadeia processos inflamatórios.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q6')">
                         <input type="radio" name="q6" value="e"> 
-                        E) Aumento significativo e inesperado no número de casos de uma doença em nível global.
+                        E) Neutrófilos - apresentam antígenos para ativar outros componentes do sistema imunológico.
                     </div>
                 </div>
             </div>
@@ -502,31 +493,29 @@
             <div class="question" id="q7">
                 <div class="question-number">Questão 7</div>
                 <div class="question-text">
-                    <p>Os vírus podem apresentar diferentes formatos e estruturas, que são classificados em três tipos principais: poliédricos, helicoidais e complexos. Essas características estão relacionadas com sua capacidade de infectar células hospedeiras.</p>
-                    <p>Observe a imagem abaixo que representa diferentes formatos de vírus:</p>
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKzp62fJVyrV2vfO2JwioLo4KmFf-xTk2KkM8tLcdTN9B4i3CkwpnsSb4cPhQZXpRJoDYhrOx8uKLZ2qTukCOxtsXaSBtBRx8rFa1kvRt6S76CfF5sQYW6g_pn-IyoQuVB0UOYxhnC_PLOolSB6mxHQyAf9on-mK66wPRBsDzcSALRwuWNlLHfW6xJQ8nW/s714/DIVERSIDADE.JPG" alt="Formatos de vírus" class="question-image">
-                    <p>Com base na imagem e nos conhecimentos sobre a diversidade viral, qual das seguintes afirmações sobre a estrutura dos vírus está CORRETA?</p>
+                    <p>A Fiocruz (Fundação Oswaldo Cruz) e o Instituto Butantan são instituições públicas brasileiras que desempenham papéis fundamentais na pesquisa, desenvolvimento e produção de vacinas, contribuindo significativamente para a saúde pública no país.</p>
+                    <p>Considerando a importância dessas instituições, qual das seguintes alternativas descreve corretamente uma de suas contribuições?</p>
                 </div>
                 <div class="options">
                     <div class="option" onclick="selectOption(this, 'q7')">
                         <input type="radio" name="q7" value="a"> 
-                        A) Todos os vírus possuem envelope lipídico externo que envolve o nucleocapsídeo.
+                        A) Ambas as instituições são responsáveis exclusivamente pela importação de vacinas de outros países para distribuição no Brasil.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q7')">
                         <input type="radio" name="q7" value="b"> 
-                        B) Os vírus complexos, como os bacteriófagos, possuem estruturas adicionais como cauda e fibras caudais.
+                        B) O Instituto Butantan e a Fiocruz produzem vacinas essenciais para o Programa Nacional de Imunizações, como as vacinas contra a gripe e a febre amarela.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q7')">
                         <input type="radio" name="q7" value="c"> 
-                        C) Os vírus helicoidais possuem formato esférico com capsídeos simétricos.
+                        C) Essas instituições focam apenas na pesquisa de doenças raras, não produzindo vacinas para doenças comuns.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q7')">
                         <input type="radio" name="q7" value="d"> 
-                        D) Os vírus poliédricos têm formato de hélice com o material genético enrolado dentro do capsídeo.
+                        D) A Fiocruz e o Instituto Butantan são organizações privadas que vendem vacinas exclusivamente para o mercado internacional.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q7')">
                         <input type="radio" name="q7" value="e"> 
-                        E) A estrutura viral não influencia na capacidade do vírus de infectar células específicas.
+                        E) Essas instituições são responsáveis apenas pela distribuição de vacinas, não envolvendo-se em pesquisa ou produção.
                     </div>
                 </div>
             </div>
@@ -534,31 +523,29 @@
             <div class="question" id="q8">
                 <div class="question-number">Questão 8</div>
                 <div class="question-text">
-                    <p>As bactérias desempenham papéis ecossistêmicos fundamentais, incluindo a decomposição da matéria orgânica e a participação em ciclos biogeoquímicos como o ciclo do nitrogênio.</p>
-                    <p>Observe a imagem abaixo que representa o papel das bactérias na fixação do nitrogênio:</p>
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyXJW_pzeKhKclLzK-VlEUnUQi3xJrmS4Gnv-4fM1dQKEWN22uLPNy7K-4zhGNxotliIC0bStO0jnPs6g1PhoFxfmZ32JKbV-dm3X_BGRM2VofzbC1PwN1w3Avs9HtUj7KTFbe4CjJtcXr5UGy5QlIEyLS4f3_ilb7yhXXdPPHStU4W-nBLsJV3NeJBApi/s572/CICLO.JPG" alt="Fixação do nitrogênio por bactérias" class="question-image">
-                    <p>Com base na imagem e nos conhecimentos sobre o papel ecológico das bactérias, qual das seguintes afirmações sobre a fixação do nitrogênio está CORRETA?</p>
+                    <p>A vacinação é considerada um pacto coletivo porque vai além da proteção individual, beneficiando toda a comunidade. No entanto, nos últimos anos, o Brasil tem enfrentado uma queda nas taxas de vacinação, o que preocupa os especialistas em saúde pública.</p>
+                    <p>Considerando essa situação, qual das seguintes alternativas apresenta uma consequência direta da redução na cobertura vacinal?</p>
                 </div>
                 <div class="options">
                     <div class="option" onclick="selectOption(this, 'q8')">
                         <input type="radio" name="q8" value="a"> 
-                        A) As bactérias do gênero Rhizobium transformam o nitrogênio do ar (N₂) em amônia (NH₃), que pode ser utilizada pelas plantas.
+                        A) Aumento da imunidade coletiva, protegendo ainda mais as pessoas não vacinadas.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q8')">
                         <input type="radio" name="q8" value="b"> 
-                        B) A fixação do nitrogênio é realizada exclusivamente por bactérias que vivem livremente no solo, sem associação com plantas.
+                        B) Redução no número de casos de doenças que já estavam controladas ou erradicadas, como a poliomielite e o sarampo.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q8')">
                         <input type="radio" name="q8" value="c"> 
-                        C) As bactérias transformam diretamente o nitrogênio atmosférico em nitrato, que é absorvido pelas plantas.
+                        C) Ressurgimento de doenças preveníveis por vacina, colocando em risco principalmente crianças, idosos e pessoas com sistema imunológico comprometido.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q8')">
                         <input type="radio" name="q8" value="d"> 
-                        D) O processo de fixação do nitrogênio não depende de bactérias, sendo realizado apenas por processos físicos e químicos no solo.
+                        D) Diminuição dos gastos do sistema público de saúde com campanhas de vacinação e compra de vacinas.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q8')">
                         <input type="radio" name="q8" value="e"> 
-                        E) As bactérias fixadoras de nitrogênio obtêm energia diretamente da luz solar através da fotossíntese.
+                        E) Fortalecimento do sistema imunológico da população devido à exposição natural aos patógenos.
                     </div>
                 </div>
             </div>
@@ -566,31 +553,29 @@
             <div class="question" id="q9">
                 <div class="question-number">Questão 9</div>
                 <div class="question-text">
-                    <p>A tuberculose é uma doença infecciosa causada pela bactéria Mycobacterium tuberculosis, também conhecida como bacilo de Koch. É uma doença que afeta prioritariamente os pulmões, mas pode atingir outros órgãos.</p>
-                    <p>Observe a imagem abaixo que representa a bactéria causadora da tuberculose:</p>
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQdmTFlEU2ol0ihfXMHsQiAHNVYthesfmKlpNG4vZxgSDfLAaRAJFCDjnuedrveiixo_-hfqE5hVz_InoVeHfDpiYalt0cSfMq10GMNQY_9QiDzSrIY1_Z2fYhuWKqx5mB5m_3JNw8CnDf-EIqtUGOfHCuXyukm6bDh-XKgG8yCzyYvubOSJZINPktU5pO/s455/TUBERCULOSE.JPG" alt="Bactéria da tuberculose" class="question-image">
-                    <p>Com base na imagem e nos conhecimentos sobre a tuberculose, qual das seguintes afirmações sobre a prevenção e tratamento desta doença está CORRETA?</p>
+                    <p>O sistema linfático é uma rede de órgãos, vasos e tecidos que faz parte do sistema imunológico. Ele inclui estruturas como linfonodos, baço, timo e amígdalas, que desempenham funções importantes na defesa do organismo.</p>
+                    <p>Considerando a função do sistema linfático, qual das seguintes alternativas descreve corretamente o papel dos linfonodos?</p>
                 </div>
                 <div class="options">
                     <div class="option" onclick="selectOption(this, 'q9')">
                         <input type="radio" name="q9" value="a"> 
-                        A) A vacina BCG, disponível no SUS, deve ser ministrada às crianças ao nascer e protege contra todas as formas de tuberculose.
+                        A) Produzir todas as células do sangue, incluindo glóbulos vermelhos e brancos.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q9')">
                         <input type="radio" name="q9" value="b"> 
-                        B) O tratamento da tuberculose é realizado com antibióticos por no mínimo seis meses e é gratuito no SUS.
+                        B) Filtrar a linfa, removendo partículas estranhas e abrigando linfócitos que combatem infecções.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q9')">
                         <input type="radio" name="q9" value="c"> 
-                        C) A tuberculose não é uma doença transmissível, portanto não requer medidas de isolamento ou prevenção.
+                        C) Produzir anticorpos que são liberados diretamente na corrente sanguínea.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q9')">
                         <input type="radio" name="q9" value="d"> 
-                        D) A transmissão da tuberculose ocorre principalmente através do consumo de água ou alimentos contaminados.
+                        D) Armazenar vitaminas e minerais essenciais para o funcionamento do sistema imunológico.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q9')">
                         <input type="radio" name="q9" value="e"> 
-                        E) Não existe vacina contra a tuberculose, sendo a prevenção baseada apenas no uso de máscaras em ambientes fechados.
+                        E) Produzir enzimas digestivas que ajudam a eliminar patógenos presentes nos alimentos.
                     </div>
                 </div>
             </div>
@@ -598,31 +583,29 @@
             <div class="question" id="q10">
                 <div class="question-number">Questão 10</div>
                 <div class="question-text">
-                    <p>A pandemia de COVID-19, causada pelo coronavírus SARS-CoV-2, impactou profundamente a sociedade global e destacou a importância dos sistemas de saúde e da vigilância epidemiológica.</p>
-                    <p>Observe a imagem abaixo que representa a linha do tempo da pandemia de COVID-19:</p>
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZut5lJIknhqO_LHBmo1TwLNXTq4jjg7vc-z8_EI7EGMXsNNo3YJEdmrY0v-SoNplwTEkom9eGt-GAnxtrifhT19-4lB2WI34Fh-aaynq66VI-5z7XlPDbmx4Lvhqho7B3FsJmx1LCI6PwEUUyuVk7q9txQUheHOoEFlfr-WnSL7Sr4bm_9Y_kLgPbvSmc/s980/LINHA%20DO%20TEMPO.JPG" alt="Linha do tempo da pandemia de COVID-19" class="question-image">
-                    <p>Com base na imagem e nos conhecimentos sobre a pandemia de COVID-19, qual das seguintes afirmações sobre as medidas de controle da pandemia está CORRETA?</p>
+                    <p>A água potável é essencial para a vida e a saúde humana. O processo de tratamento da água envolve várias etapas para garantir que ela seja segura para consumo, removendo impurezas e microrganismos patogênicos.</p>
+                    <p>Considerando o ciclo do saneamento básico, qual das seguintes alternativas descreve corretamente uma etapa do tratamento da água?</p>
                 </div>
                 <div class="options">
                     <div class="option" onclick="selectOption(this, 'q10')">
                         <input type="radio" name="q10" value="a"> 
-                        A) A Organização Mundial da Saúde (OMS) é responsável por declarar quando uma doença se torna uma pandemia e emitir alertas para que os países tomem providências.
+                        A) A água é submetida a processos de evaporação e condensação para remover impurezas.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q10')">
                         <input type="radio" name="q10" value="b"> 
-                        B) As vacinas contra COVID-19 foram desenvolvidas em tempo recorde, mas não foram eficazes no controle da pandemia.
+                        B) A fluoretação é realizada para adicionar flúor à água, ajudando na prevenção de cáries dentárias.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q10')">
                         <input type="radio" name="q10" value="c"> 
-                        C) A OMS declarou o fim da Emergência de Saúde Pública Global da COVID-19 em março de 2022, antes do desenvolvimento das vacinas.
+                        C) A água é fervida em grandes caldeiras para eliminar todos os microrganismos antes da distribuição.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q10')">
                         <input type="radio" name="q10" value="d"> 
-                        D) Os lockdowns e outras medidas restritivas não tiveram impacto significativo na redução da transmissão do vírus.
+                        D) São adicionados antibióticos à água para eliminar bactérias patogênicas.
                     </div>
                     <div class="option" onclick="selectOption(this, 'q10')">
                         <input type="radio" name="q10" value="e"> 
-                        E) A pandemia de COVID-19 foi a primeira e única pandemia declarada pela OMS no século XXI.
+                        E) A água é submetida a radiação ultravioleta para modificar seu sabor e torná-la mais agradável.
                     </div>
                 </div>
             </div>
@@ -704,16 +687,16 @@
             // Calcular nota (cada questão vale 1 ponto)
             let score = 0;
             const correctAnswers = {
-                'q1': 'c',
+                'q1': 'b',
                 'q2': 'b',
-                'q3': 'b',
+                'q3': 'c',
                 'q4': 'c',
-                'q5': 'd',
-                'q6': 'd',
+                'q5': 'b',
+                'q6': 'a',
                 'q7': 'b',
-                'q8': 'a',
+                'q8': 'c',
                 'q9': 'b',
-                'q10': 'a'
+                'q10': 'b'
             };
             
             for (let i = 1; i <= 10; i++) {
@@ -764,34 +747,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
