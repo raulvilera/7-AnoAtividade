@@ -51,25 +51,17 @@
         .info-group {
             display: flex;
             flex-direction: column;
-        }
-        
-        .info-group-name {
-            flex: 4; /* Maior espaço para o nome */
-            min-width: 300px;
-        }
-        
-        .info-group-number {
-            flex: 1; /* Menor espaço para o número */
-            min-width: 60px;
-        }
-        
-        .info-group-class {
-            flex: 2; /* Espaço médio para a série */
+            flex: 1;
             min-width: 120px;
         }
         
-        .info-group-date {
-            flex: 2; /* Espaço médio para a data */
+        .info-group-name {
+            flex: 100%;
+            min-width: 100%;
+        }
+        
+        .info-group-number, .info-group-class, .info-group-date {
+            flex: 1;
             min-width: 120px;
         }
         
@@ -168,6 +160,8 @@
             padding: 20px;
             background-color: #f8f8f8;
             border-top: 1px solid #e2e8f0;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         button {
@@ -177,6 +171,8 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
+            flex: 1;
+            min-width: 150px;
         }
         
         #submit-btn {
@@ -212,6 +208,99 @@
         .error {
             background-color: #fee2e2;
             color: #991b1b;
+        }
+        
+        /* Media Queries para responsividade */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                border-radius: 5px;
+            }
+            
+            header {
+                padding: 15px;
+            }
+            
+            .school-name {
+                font-size: 1.2rem;
+            }
+            
+            .student-info {
+                gap: 8px;
+            }
+            
+            .info-group {
+                min-width: 100%;
+            }
+            
+            .info-group-number, .info-group-class, .info-group-date {
+                flex: 1;
+                min-width: calc(33.33% - 10px);
+            }
+            
+            .activity-title {
+                font-size: 1.1rem;
+                padding: 8px;
+            }
+            
+            .questions-container {
+                padding: 15px;
+            }
+            
+            .question {
+                padding: 15px;
+                margin-bottom: 1.5cm;
+            }
+            
+            .question-number {
+                font-size: 1rem;
+            }
+            
+            .question-text {
+                font-size: 0.95rem;
+            }
+            
+            .option {
+                padding: 8px;
+            }
+            
+            .buttons {
+                padding: 15px;
+            }
+            
+            button {
+                padding: 10px 20px;
+                min-width: 120px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .school-name {
+                font-size: 1rem;
+            }
+            
+            .activity-title {
+                font-size: 1rem;
+            }
+            
+            .info-group-number, .info-group-class, .info-group-date {
+                min-width: 100%;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+            }
+            
+            .question {
+                margin-bottom: 1cm;
+            }
         }
     </style>
 </head>
@@ -316,8 +405,8 @@
                     <p>O sistema imunológico humano possui diferentes tipos de defesa para proteger nosso corpo contra agentes invasores como vírus, bactérias e fungos. A imunidade inata é a primeira linha de defesa e está presente desde o nascimento, enquanto a imunidade adaptativa desenvolve-se ao longo da vida através do contato com patógenos.</p>
                     <p>Considerando essas informações, qual das seguintes alternativas descreve corretamente uma característica da imunidade inata?</p>
                 </div>
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBVi4Mr8CmaCwq985wEecKCqtOHbTHcouUaYvqZN4NK2x1AUDKM5IserlgAzIqx7WNLBndzkMCFX4aNpoCZExC_KLlcQYJN9nS8SqdY139mn4k8KDD11IBVeKKWAUAwT9ikpPoxSbPei5FlJwKcQIj-DmVzjlKin7_XJF7g6yGM1BpiTHwbTUNmBC50IhU/s641/Capturar.JPG">
-                Fonte:https://www.todamateria.com.br/sistema-imunologico/
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBVi4Mr8CmaCwq985wEecKCqtOHbTHcouUaYvqZN4NK2x1AUDKM5IserlgAzIqx7WNLBndzkMCFX4aNpoCZExC_KLlcQYJN9nS8SqdY139mn4k8KDD11IBVeKKWAUAwT9ikpPoxSbPei5FlJwKcQIj-DmVzjlKin7_XJF7g6yGM1BpiTHwbTUNmBC50IhU/s641/Capturar.JPG" class="question-image">
+                <p>Fonte:https://www.todamateria.com.br/sistema-imunologico/</p>
                 <div class="options">
                     <div class="option" onclick="selectOption(this, 'q1')">
                         <input type="radio" name="q1" value="a"> 
@@ -348,7 +437,7 @@
                     <p>As vacinas são uma das maiores conquistas da medicina moderna, responsáveis por salvar milhões de vidas anualmente. Elas funcionam estimulando o sistema imunológico a produzir uma resposta protetora sem causar a doença.</p>
                     <p>Com base no funcionamento das vacinas, qual das seguintes alternativas explica corretamente como elas preparam o organismo para combater futuras infecções?</p>
                 </div>
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNBPUevXfv9NLZgbTB23ZqJ5xIOSrnWfpl4oN39xmTHyVhMiChZWW65QHfWN3Z_a5owYMMyFRvluslEU__w6RN4BBLpm1_o4n942SdInFHD42_lbZxOJhiH4URWNXmbijxtukckPpdCOP0u0MUqNjwO2SgGHNZ5Efqy7h9-VoyTkxTHXX3fpVYtmRjqwjH/s550/Capturar.JPG">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNBPUevXfv9NLZgbTB23ZqJ5xIOSrnWfpl4oN39xmTHyVhMiChZWW65QHfWN3Z_a5owYMMyFRvluslEU__w6RN4BBLpm1_o4n942SdInFHD42_lbZxOJhiH4URWNXmbijxtukckPpdCOP0u0MUqNjwO2SgGHNZ5Efqy7h9-VoyTkxTHXX3fpVYtmRjqwjH/s550/Capturar.JPG" class="question-image">
                 <div class="options">
                     <div class="option" onclick="selectOption(this, 'q2')">
                         <input type="radio" name="q2" value="a"> 
@@ -379,7 +468,7 @@
                     <p>O saneamento básico é fundamental para a saúde pública, pois envolve serviços essenciais como abastecimento de água potável, coleta e tratamento de esgoto, limpeza urbana e drenagem de águas pluviais. A falta desses serviços pode levar a diversas doenças.</p>
                     <p>Considerando a importância do saneamento básico, qual das seguintes situações representa uma consequência direta da falta de acesso a esses serviços?</p>
                 </div>
-                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjB1yngxQ1l6YR0LVeE6GEne8cv0XZARplQ5t4sWVtjgXjbjgSZPpSmyeLyHocH2m2oSNbQvz3kBnKHfXuLe-ljnTQ8XibNGOMZeipoxNPadQpeG6psZQryRLKXR4BEmX4jluQEGKWqgM66PCmsY0syDFZQFcpjGL24WgF4g75iAOB7QeAcLwmdNRmysBU/s550/Capturar.JPG">
+                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjB1yngxQ1l6YR0LVeE6GEne8cv0XZARplQ5t4sWVtjgXjbjgSZPpSmyeLyHocH2m2oSNbQvz3kBnKHfXuLe-ljnTQ8XibNGOMZeipoxNPadQpeG6psZQryRLKXR4BEmX4jluQEGKWqgM66PCmsY0syDFZQFcpjGL24WgF4g75iAOB7QeAcLwmdNRmysBU/s550/Capturar.JPG" class="question-image">
                 <div class="options">
                     <div class="option" onclick="selectOption(this, 'q3')">
                         <input type="radio" name="q3" value="a"> 
@@ -408,7 +497,7 @@
                 <div class="question-number">Questão 4</div>
                 <div class="question-text">
                     <p>A imunidade de rebanho, também conhecida como imunidade coletiva, é um conceito importante em saúde pública que ocorre quando uma grande parte da população está vacinada contra uma doença, protegendo indiretamente aqueles que não podem ser vacinados.</p>
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEo8TD5EtQwvtezZUHscKK8zlgcrKLzpDNJrDiye3v8zH31aDfr4PVGrUSLpVkNZgjlVv1rdaXvt1VuLEl9C3Xr-TYG9BOl-qJtFj-ouN4g6UlxMXDS3b4cG-Chch7h8Lweq3UwKSwIhqVYlVfYR4bsOYUtdC0aReqfy4jWdttxsUXqWmwiChjSVRfL4w_/s550/Capturar.JPG">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEo8TD5EtQwvtezZUHscKK8zlgcrKLzpDNJrDiye3v8zH31aDfr4PVGrUSLpVkNZgjlVv1rdaXvt1VuLEl9C3Xr-TYG9BOl-qJtFj-ouN4g6UlxMXDS3b4cG-Chch7h8Lweq3UwKSwIhqVYlVfYR4bsOYUtdC0aReqfy4jWdttxsUXqWmwiChjSVRfL4w_/s550/Capturar.JPG" class="question-image">
                     <p>Com base nesse conceito, qual das seguintes afirmações sobre a imunidade de rebanho está correta?</p>
                 </div>
                 <div class="options">
@@ -439,7 +528,7 @@
                 <div class="question-number">Questão 5</div>
                 <div class="question-text">
                     <p>O Programa Nacional de Imunizações (PNI) é uma política pública brasileira criada em 1973 que garante o acesso gratuito a vacinas para a população. Esse programa é reconhecido internacionalmente por sua abrangência e eficácia.</p>
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgM05ztwG8-HL3uXUOJD8camOs762tnYltxUxMzm9nVFfbzOJskhPZvbrFmPnybSKz0T7GMoqjNWnZoNN-BexLsfluAZnK9yuZDFPyWLROKxcu2F-KeeMEYEgRYE7od1iHLAJlOunS3V1Cy7vGjdHtxDRfRtUtzK3_AoOxQL822CktcCXpuGVu4gPHgZBOB/s550/Capturar.JPG">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgM05ztwG8-HL3uXUOJD8camOs762tnYltxUxMzm9nVFfbzOJskhPZvbrFmPnybSKz0T7GMoqjNWnZoNN-BexLsfluAZnK9yuZDFPyWLROKxcu2F-KeeMEYEgRYE7od1iHLAJlOunS3V1Cy7vGjdHtxDRfRtUtzK3_AoOxQL822CktcCXpuGVu4gPHgZBOB/s550/Capturar.JPG" class="question-image">
                     <p>Considerando a importância do PNI, qual das seguintes alternativas descreve corretamente um de seus principais objetivos?</p>
                 </div>
                 <div class="options">
@@ -470,7 +559,7 @@
                 <div class="question-number">Questão 6</div>
                 <div class="question-text">
                     <p>As células do sistema imunológico, também conhecidas como leucócitos ou glóbulos brancos, possuem funções específicas na defesa do organismo. Entre elas, destacam-se os linfócitos, os macrófagos e as células natural killer (NK).</p>
-                     <img src="  https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7AYtenySS826Gd5jkPMQ2PZSh6g9a3hBOPKb76qIbfQDLH0ssrW3JmGmJJxBG2eLHSQlx_3CN_Tl1cNQBwleS3b7xxRhGAPtNNrEFk7KXQ5ThEPK2l2t_QP-Vi0RWty1lgM1u4hCQaXEW4qzHHn-pu5ZeOtDzjXyQj1oHm5OZNal5EhnraJcqZNLfI7X1/s550/Capturar.JPG">
+                     <img src="  https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7AYtenySS826Gd5jkPMQ2PZSh6g9a3hBOPKb76qIbfQDLH0ssrW3JmGmJJxBG2eLHSQlx_3CN_Tl1cNQBwleS3b7xxRhGAPtNNrEFk7KXQ5ThEPK2l2t_QP-Vi0RWty1lgM1u4hCQaXEW4qzHHn-pu5ZeOtDzjXyQj1oHm5OZNal5EhnraJcqZNLfI7X1/s550/Capturar.JPG" class="question-image">
                     <p>Com base nas funções dessas células, qual das seguintes alternativas associa corretamente o tipo de célula com sua função principal?</p>
                 </div>
                 <div class="options">
@@ -501,8 +590,8 @@
                 <div class="question-number">Questão 7</div>
                 <div class="question-text">
                     <p>A Fiocruz (Fundação Oswaldo Cruz) e o Instituto Butantan são instituições públicas brasileiras que desempenham papéis fundamentais na pesquisa, desenvolvimento e produção de vacinas, contribuindo significativamente para a saúde pública no país.</p>
-                     <img src=" https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUqHjsw-UvDtngRV7fOFN3gXIz3nhHldW_mAxA6i1jT4RVXojEo8f8GwoqCSSnh5Xx_MhR8d1t1ITK0_j-rfQkIBQOoluJkahm0VLMH7X10clX0WPLRFKIov4vpaAfjuycgYRKuEpwnw2_ryik0cepivWWOrihOTMQa7f9LIV0NauJoLaS5s6owvtApuPA/s550/Capturar.JPG">
-                    <p>Considerando a importância dessas instituições, qual das seguintes alternativas descreve corretamente uma de suas contribuições?</p>
+                     <img src=" https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUqHjsw-UvDtngRV7fOFN3gXIz3nhHldW_mAxA6i1jT4RVXojEo8f8GwoqCSSnh5Xx_MhR8d1t1ITK0_j-rfQkIBQOoluJkahm0VLMH7X10clX0WPLRFKIov4vpaAfjuycgYRKuEpwnw2_ryik0cepivWWOrihOTMQa7f9LIV0NauJoLaS5s6owvtApuPA/s550/Capturar.JPG" class="question-image">
+                    <p>Considering a importância dessas instituições, qual das seguintes alternativas descreve corretamente uma de suas contribuições?</p>
                 </div>
                 <div class="options">
                     <div class="option" onclick="selectOption(this, 'q7')">
@@ -532,7 +621,7 @@
                 <div class="question-number">Questão 8</div>
                 <div class="question-text">
                     <p>A vacinação é considerada um pacto coletivo porque vai além da proteção individual, beneficiando toda a comunidade. No entanto, nos últimos anos, o Brasil tem enfrentado uma queda nas taxas de vacinação, o que preocupa os especialistas em saúde pública.</p>
-                     <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9FQoZ_KetRhZp-32fJXhFcisdsAYEToFQnxol1cDvByFUb-U8uck7OAHmYpXtFYF06g6IwdWJm2BOKS3CAr6AsXddZeeGkoBcL4wLSJCRnYd9bnOKkM0FK9bLmvSi6Xa1auKsaAZEcDSqfdo_Xgqqake5L1p98jzUXVS3QAfykuUDfhaJuVDNWzXFgKHu/s550/Capturar.JPG">
+                     <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9FQoZ_KetRhZp-32fJXhFcisdsAYEToFQnxol1cDvByFUb-U8uck7OAHmYpXtFYF06g6IwdWJm2BOKS3CAr6AsXddZeeGkoBcL4wLSJCRnYd9bnOKkM0FK9bLmvSi6Xa1auKsaAZEcDSqfdo_Xgqqake5L1p98jzUXVS3QAfykuUDfhaJuVDNWzXFgKHu/s550/Capturar.JPG" class="question-image">
                     <p>Considerando essa situação, qual das seguintes alternativas apresenta uma consequência direta da redução na cobertura vacinal?</p>
                 </div>
                 <div class="options">
@@ -563,7 +652,7 @@
                 <div class="question-number">Questão 9</div>
                 <div class="question-text">
                     <p>O sistema linfático é uma rede de órgãos, vasos e tecidos que faz parte do sistema imunológico. Ele inclui estruturas como linfonodos, baço, timo e amígdalas, que desempenham funções importantes na defesa do organismo.</p>
-                     <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6g93-nvoNurKj5w44nESYFlHg548UD1h7RWo0GAvgvLRCgP_748UpabcnBO3jd69546VPNogzw9XyD5lBzjmDq3MzqAj6vTTq_TqIbK6soPEiisbTVThRpvXt3Q9R38GWULdFJdz8DjlZphCVd6sERNn9bYWBin0NvU87u9eqBR-oOIXhpBhI2aO6MDFy/s650/Capturar.JPG">
+                     <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6g93-nvoNurKj5w44nESYFlHg548UD1h7RWo0GAvgvLRCgP_748UpabcnBO3jd69546VPNogzw9XyD5lBzjmDq3MzqAj6vTTq_TqIbK6soPEiisbTVThRpvXt3Q9R38GWULdFJdz8DjlZphCVd6sERNn9bYWBin0NvU87u9eqBR-oOIXhpBhI2aO6MDFy/s650/Capturar.JPG" class="question-image">
                 <p>Considerando a função do <strong>sistema linfático</strong>, qual das seguintes alternativas descreve corretamente o papel dos linfonodos?</p>
                     </div>
                     <div class="options">
@@ -594,7 +683,7 @@
                 <div class="question-number">Questão 10</div>
                 <div class="question-text">
                     <p>A água potável é essencial para a vida e a saúde humana. O processo de tratamento da água envolve várias etapas para garantir que ela seja segura para consumo, removendo impurezas e microrganismos patogênicos.</p>
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgN_XskKBqUjrORLCEPvIXUb2JoWXVDxWYmurAycpK02cbMewLWcTy5fyn7DxQI18p2_Uu12P8Ax3_OETA1lkgUNKHRPqy2lb_VN0L1XlR98R3zrc1Hb7ZxJWIr07FAWwzDEQONdMjpU1g4hizPADjKxCWNTJ4pVKNfJzHRrKsOrbcqMyL6ylP2WyogLn0I/s550/Capturar.JPG">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgN_XskKBqUjrORLCEPvIXUb2JoWXVDxWYmurAycpK02cbMewLWcTy5fyn7DxQI18p2_Uu12P8Ax3_OETA1lkgUNKHRPqy2lb_VN0L1XlR98R3zrc1Hb7ZxJWIr07FAWwzDEQONdMjpU1g4hizPADjKxCWNTJ4pVKNfJzHRrKsOrbcqMyL6ylP2WyogLn0I/s550/Capturar.JPG" class="question-image">
                     <p>Considerando o ciclo do saneamento básico, qual das seguintes alternativas descreve corretamente uma etapa do tratamento da água?</p>
                 </div>
                 <div class="options">
@@ -757,29 +846,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
